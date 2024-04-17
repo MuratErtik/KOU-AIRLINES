@@ -25,13 +25,95 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <div class="form-group custom-location1" style="width: 200px;">
-                            <input type="text" class="form-control" id="textfield1" placeholder="From">
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" placeholder="From" list="list-timezone" id="input-datalist">
+                            <datalist id="list-timezone">
+                                <option>Asia/Aden</option>
+                                <option>Asia/Aqtau</option>
+                                <option>Asia/Baghdad</option>
+                                <option>Asia/Barnaul</option>
+                                <option>Asia/Chita</option>
+                                <option>Asia/Dhaka</option>
+                                <option>Asia/Famagusta</option>
+                                <option>Asia/Hong_Kong</option>
+                                <option>Asia/Jayapura</option>
+                                <option>Asia/Kuala_Lumpur</option>
+                                <option>Asia/Jakarta</option>
+                                <option>Asia/Aden</option>
+                                <option>Asia/Aqtau</option>
+                                <option>Asia/Baghdad</option>
+           
+                                <option>Asia/Aden</option>
+                                <option>Asia/Aqtau</option>
+                                <option>Asia/Baghdad</option>
+                                <option>Asia/Barnaul</option>
+                                <option>Asia/Chita</option>
+                                <option>Asia/Dhaka</option>
+                                <option>Asia/Famagusta</option>
+                                <option>Asia/Hong_Kong</option>
+                                <option>Asia/Jayapura</option>
+                                <option>Asia/Kuala_Lumpur</option>
+                                <option>Asia/Jakarta</option>
+                                <option>Asia/Aden</option>
+                                <option>Asia/Aqtau</option>
+                                <option>Asia/Baghdad</option>
+                                <option>Asia/Barnaul</option>
+                                <option>Asia/Chita</option>
+                                <option>Asia/Dhaka</option>
+                                <option>Asia/Famagusta</option>
+                                <option>Asia/Hong_Kong</option>
+                                <option>Asia/Jayapura</option>
+                                <option>Asia/Kuala_Lumpur</option>
+                                <option>Asia/Jakarta</option>
+                        
+                            </datalist>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="form-group custom-location2" style="width: 200px; ">
-                            <input type="text" class="form-control" id="textfield2" placeholder="To">
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" placeholder="To" list="list-timezone" id="input-datalist">
+                            <datalist id="list-timezone">
+                                <option>Asia/Aden</option>
+                                <option>Asia/Aqtau</option>
+                                <option>Asia/Baghdad</option>
+                                <option>Asia/Barnaul</option>
+                                <option>Asia/Chita</option>
+                                <option>Asia/Dhaka</option>
+                                <option>Asia/Famagusta</option>
+                                <option>Asia/Hong_Kong</option>
+                                <option>Asia/Jayapura</option>
+                                <option>Asia/Kuala_Lumpur</option>
+                                <option>Asia/Jakarta</option>
+                                <option>Asia/Aden</option>
+                                <option>Asia/Aqtau</option>
+                                <option>Asia/Baghdad</option>
+           
+                                <option>Asia/Aden</option>
+                                <option>Asia/Aqtau</option>
+                                <option>Asia/Baghdad</option>
+                                <option>Asia/Barnaul</option>
+                                <option>Asia/Chita</option>
+                                <option>Asia/Dhaka</option>
+                                <option>Asia/Famagusta</option>
+                                <option>Asia/Hong_Kong</option>
+                                <option>Asia/Jayapura</option>
+                                <option>Asia/Kuala_Lumpur</option>
+                                <option>Asia/Jakarta</option>
+                                <option>Asia/Aden</option>
+                                <option>Asia/Aqtau</option>
+                                <option>Asia/Baghdad</option>
+                                <option>Asia/Barnaul</option>
+                                <option>Asia/Chita</option>
+                                <option>Asia/Dhaka</option>
+                                <option>Asia/Famagusta</option>
+                                <option>Asia/Hong_Kong</option>
+                                <option>Asia/Jayapura</option>
+                                <option>Asia/Kuala_Lumpur</option>
+                                <option>Asia/Jakarta</option>
+                        
+                            </datalist>
                         </div>
                     </div>
                     <div class="col">
@@ -128,6 +210,11 @@
             
             updateDisplay(0);
         });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', e => {
+            $('#input-datalist').autocomplete()
+        }, false);
     </script>
 </body>
 </html>
