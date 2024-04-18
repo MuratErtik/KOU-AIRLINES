@@ -30,12 +30,12 @@ connection.connect((err) => {
 
 app.get('/users', (req, res) => {
     
-    const sqlQuery = 'select airport_name,airportsid from airports';
+    const sqlQuery1 = 'select airport_name,airportsid from airports';
 
     
-    connection.query(sqlQuery, (error, results) => {
+    connection.query(sqlQuery1, (error, results) => {
         if (error) {
-            console.error('Query Error: ' + error);
+            console.error('Query Error for query1: ' + error);
             res.status(500).send('Database Error');
             return;
         }
