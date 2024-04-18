@@ -83,12 +83,12 @@
                 const datalistTo = document.getElementById('list-timezone-to');
 
                 users.forEach(item => {
-                    // From datalist'e ekle
+                    // add From datalist
                     const optionFrom = document.createElement('option');
                     optionFrom.value = `${item.airport_name} (${item.airportsid})`;
                     datalistFrom.appendChild(optionFrom);
 
-                    // To datalist'e ekle
+                    // add To datalist
                     const optionTo = document.createElement('option');
                     optionTo.value = `${item.airport_name} (${item.airportsid})`;
                     datalistTo.appendChild(optionTo);
