@@ -17,3 +17,7 @@ VALUES ('SBH','Sabiha Gokcen Airport','Turkiye','Istanbul','Sanayi, 34906 Pendik
 ('NRT','Tokyo Airport','Japan','Tokyo','1-1 Furugome, Narita, Chiba 282-0004, Japan');
 -------------------------------------------------------------------------------------------------------
 select airport_name,airportsid from airports
+---------------------------------------------------------------------------------------------------------
+insert into flights (flightsid,flights.from,flights.to,flight_time,departure_date,flight_price)
+values
+('SBH-ESB-0930200424','SBH','ESB','01:00:00','2024-04-20 09:30:00',1500);
