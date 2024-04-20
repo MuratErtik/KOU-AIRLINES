@@ -24,11 +24,17 @@
             
             <div class="progress-container">
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Choose Your Flight</div>
+                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Choose Your Flight <img id="image" src="Images/flight.png" alt="Icon2"></div>
+            
                 </div>
             </div>
+            <div id="flightContainer">
 
-            
+                </div>
+    </div>
+   
+ 
+
         </div>
     </section>
     <footer>
@@ -51,33 +57,7 @@
     
     
  
-    <script>
-        fetch('http://localhost:3000/users')
-            .then(response => response.json())
-            .then(users => {
-                const datalistFrom = document.getElementById('list-timezone-from');
-                const datalistTo = document.getElementById('list-timezone-to');
 
-                users.forEach(item => {
-                    // add From datalist
-                    const optionFrom = document.createElement('option');
-                    optionFrom.value = `${item.airport_name} (${item.airportsid})`;
-                    datalistFrom.appendChild(optionFrom);
-
-                    // add To datalist
-                    const optionTo = document.createElement('option');
-                    optionTo.value = `${item.airport_name} (${item.airportsid})`;
-                    datalistTo.appendChild(optionTo);
-                });
-            })
-            .catch(error => {
-                console.error('No data:', error);
-            });
-
-
-
-        
-    </script>
     
     
     

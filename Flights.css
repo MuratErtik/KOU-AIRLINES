@@ -27,9 +27,21 @@
     
     .progress-container {
         position: relative;
-        top: -200px; /* Yükseklik değeri ayarlayın */
+        top: -200px; 
+        
+        
         .progress{
             height: 40px;
+            background-color: #F3FBFF;
+            .progress-bar{
+                background-color: #034077;
+            }
+            
+            #image{
+                width: 20px; 
+                height: auto; 
+                
+            }
         }
         
     }
