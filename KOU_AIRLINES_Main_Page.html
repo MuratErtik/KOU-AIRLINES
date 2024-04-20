@@ -59,6 +59,7 @@
                     </div>
                     <div class="col">
                         <button id="searchButton" class="btn btn-outline-primary" style="width: 100px;">Search</button>
+
                     </div>
                 </div>
             </div>
@@ -170,13 +171,42 @@ $(function () {
     </script>
     <script>
         
-        const searchButton = document.getElementById('searchButton');
-    
+        //ALERT
+        function validateForm() {
+            var from = document.getElementById('input-datalist-from').value;
+            var to = document.getElementById('input-datalist-to').value;
+            var date = document.getElementById('datepicker').value;
+            var customer = document.getElementById('numberInput').value;
+
+            if (from === '' || to === '' || date === '' || customer === '0') {
+                alert('Please provide all required information for your flight by filling out all necessary fields.');
+                return false;
+            }
+
+            return true;
+        }
         
-        searchButton.addEventListener('click', function() {
-            
-            window.location.href = 'Flights.html';
-        });
+
+        // SEARCH BUTTON
+document.getElementById('searchButton').addEventListener('click', function() {
+    if (validateForm()) {
+        var from = document.getElementById('input-datalist-from').value;
+        var to = document.getElementById('input-datalist-to').value;
+        var date = document.getElementById('datepicker').value;
+        var customer = document.getElementById('numberInput').value;
+
+        
+        //Save the Choices in localStorage
+        localStorage.setItem('selectedFrom', from);
+        localStorage.setItem('selectedTo', to);
+        localStorage.setItem('selectedDate', date);
+        localStorage.setItem('selectedCusNum', customer);
+
+        window.location.href = 'Flights.html';
+    }
+});
+
+
     </script>
     
 </body>
