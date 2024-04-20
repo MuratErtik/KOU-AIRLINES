@@ -65,7 +65,11 @@
         </div>
     </section>
     <footer>
-        <div class="divf"></div>
+        <div class="divf">
+            <p id="kou">Kocaeli University Airlines Official Website</p>
+            <br>
+            <p id="rights">Kocaeli University Airlines Copyright © 2022 - 2024</p>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -162,6 +166,16 @@ $(function () {
         inputTo.addEventListener('input', (event) => {
             const selectedValueTo = event.target.value;
             console.log('To seçimi:', selectedValueTo);
+        });
+    </script>
+    <script>
+        
+        const searchButton = document.getElementById('searchButton');
+    
+        
+        searchButton.addEventListener('click', function() {
+            
+            window.location.href = 'Flights.html';
         });
     </script>
     

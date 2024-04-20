@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOU AIRLINES Fligts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="Flights.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <a href="KOU_AIRLINES_Main_Page.html" class="containerh">
+                <img src="Images/flight_takeoff_FILL0_wght400_GRAD0_opsz24.png" alt="Icon">
+                <h2 style="margin: 0;">KOU AIRLINES</h2>
+            </a>
+        </nav>
+    </header>
+    <section id="main">
+        <div class="div">
+            
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Choose Your Flight</div>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+    <footer>
+        <div class="divf">
+            <p id="kou">Kocaeli University Airlines Official Website</p>
+            <br>
+            <p id="rights">Kocaeli University Airlines Copyright © 2022 - 2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
+   
+    
+    
+    
+    
+    
+ 
+    <script>
+        fetch('http://localhost:3000/users')
+            .then(response => response.json())
+            .then(users => {
+                const datalistFrom = document.getElementById('list-timezone-from');
+                const datalistTo = document.getElementById('list-timezone-to');
+
+                users.forEach(item => {
+                    // add From datalist
+                    const optionFrom = document.createElement('option');
+                    optionFrom.value = `${item.airport_name} (${item.airportsid})`;
+                    datalistFrom.appendChild(optionFrom);
+
+                    // add To datalist
+                    const optionTo = document.createElement('option');
+                    optionTo.value = `${item.airport_name} (${item.airportsid})`;
+                    datalistTo.appendChild(optionTo);
+                });
+            })
+            .catch(error => {
+                console.error('No data:', error);
+            });
+
+
+
+        
+    </script>
+    
+    
+    
+</body>
+
+</html>

@@ -23,16 +23,22 @@
 .div{
     background-color: #A0D4FF;
     margin: 60px;
-    padding: 190px;
+    padding: 250px;
+    
+    .progress-container {
+        position: relative;
+        top: -200px; /* Yükseklik değeri ayarlayın */
+        .progress{
+            height: 40px;
+        }
+        
+    }
+   
+
   
     
 }
-.container{
-    position: relative;
-    top: -150px;
-    right: 120px;
-    width: 1900px;
-}
+
 .divf{
     background-color: gray;
     margin: 60px;
@@ -48,10 +54,7 @@
     
 }
 
-.bootstrap-datetimepicker-widget table td,
-.bootstrap-datetimepicker-widget table th {
-    cursor: pointer; 
-}
+
 
 
 
