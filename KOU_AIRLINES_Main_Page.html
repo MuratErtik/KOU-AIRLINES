@@ -131,22 +131,67 @@
 
 
         
-$(function () {
-            $('#datepicker').datetimepicker({
-                format: 'ddd MM/DD/YYYY', 
-                icons: {
-                    time: false,
-                    date: true,
-                    up: false,
-                    down: false,
-                    previous: 'fas fa-chevron-left',
-                    next: 'fas fa-chevron-right',
-                    today: 'fas fa-calendar-check',
-                    clear: 'fas fa-trash-alt',
-                    close: 'fas fa-times'
-                }
-            });
-        });
+$(document).ready(function() {
+    // Get the start of today (00:00:00)
+    var todayStart = moment().startOf('day');
+
+    $('#datepicker').datetimepicker({
+        format: 'ddd MM/DD/YYYY', 
+        icons: {
+            time: false,
+            date: true,
+            up: false,
+            down: false,
+            previous: 'fas fa-chevron-left',
+            next: 'fas fa-chevron-right',
+            today: 'fas fa-calendar-check',
+            clear: 'fas fa-trash-alt',
+            close: 'fas fa-times'
+        },
+        minDate: todayStart, // Enable dates from today onwards
+        useCurrent: false, // Show 'Date' as default if no date is selected
+        tooltips: {
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Close',
+            selectMonth: 'Select Month',
+            prevMonth: 'Previous Month',
+            nextMonth: 'Next Month',
+            selectYear: 'Select Year',
+            prevYear: 'Previous Year',
+            nextYear: 'Next Year',
+            invalidDate: 'Invalid Date: Past dates are disabled'
+        }
+    });
+
+    // Add event listener for date selection in the datetimepicker
+    $('#datepicker').on('change.datetimepicker', function(e) {
+        if (!e.date) {
+            // If no date is selected, set the input to 'Date'
+            $(this).find('input').val('Date');
+        }
+    });
+
+    // Add event listener for mouse enter on date cells in the datetimepicker
+    $('#datepicker').on('mouseenter', '.table td', function() {
+        var cellDate = $(this).data('day');
+        if (cellDate && moment(cellDate).isBefore(todayStart)) {
+            // If the cell's date is before today, change cursor style and tooltip
+            $(this).css('cursor', 'not-allowed');
+            $(this).attr('title', 'Past date: Not selectable');
+        }
+    });
+
+    // Add event listener for mouse leave on date cells in the datetimepicker
+    $('#datepicker').on('mouseleave', '.table td', function() {
+        // Reset cursor style and tooltip of the cell
+        $(this).css('cursor', '');
+        $(this).attr('title', '');
+    });
+});
+
+
+
         
 
         
@@ -188,8 +233,8 @@ $(function () {
         
 
         // SEARCH BUTTON
-document.getElementById('searchButton').addEventListener('click', function() {
-    if (validateForm()) {
+        document.getElementById('searchButton').addEventListener('click', function() {
+        if (validateForm()) {
         var from = document.getElementById('input-datalist-from').value;
         var to = document.getElementById('input-datalist-to').value;
         var date = document.getElementById('datepicker').value;
