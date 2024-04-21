@@ -44,6 +44,23 @@ app.get('/users', (req, res) => {
         res.json(results);
     });
 });
+app.get('/citizenship', (req, res) => {
+    
+    const sqlQuery1 = 'select citizenship from citizenship';
+
+    
+    connection.query(sqlQuery1, (error, results) => {
+        if (error) {
+            console.error('Query Error for query1: ' + error);
+            res.status(500).send('Database Error');
+            return;
+        }
+        
+        res.json(results);
+    });
+});
+
+
 
 
 //Execute the Server
