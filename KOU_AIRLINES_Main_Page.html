@@ -226,7 +226,7 @@
                 console.log(selectedFromCode);
                 console.log(selectedToCode);
                 console.log(date);
-                
+
 
 
                 //Save the Choices in localStorage
@@ -235,7 +235,7 @@
                 localStorage.setItem('selectedDate', date);
                 localStorage.setItem('selectedCusNum', customer);
 
-                
+
                 var url = `http://localhost:3000/flights?selectedFromCode=${selectedFromCode}&selectedToCode=${selectedToCode}`;
 
 
@@ -250,6 +250,13 @@
                     .then(flights => {
                         // Handle the response (flights data) here
                         
+                        localStorage.setItem('flights', JSON.stringify(flights));
+
+                        
+                        window.location.href = 'Flights.html';
+
+
+
                         console.log('Flights:', flights);
                         window.location.href = 'Flights.html';
                     })
@@ -260,7 +267,7 @@
                     });
 
 
-                
+
             }
         });
 
