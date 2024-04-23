@@ -44,6 +44,7 @@ app.get('/users', (req, res) => {
         res.json(results);
     });
 });
+
 app.get('/citizenship', (req, res) => {
     
     const sqlQuery1 = 'select citizenship from citizenship';
@@ -57,6 +58,37 @@ app.get('/citizenship', (req, res) => {
         }
         
         res.json(results);
+    });
+});
+app.get('/flights', (req, res) => {
+    // Extract parameters from the query string
+    const selectedFrom = req.query.selectedFromCode;
+    const selectedTo = req.query.selectedToCode;
+
+    // Construct the SQL query based on user input
+    const sqlQuery = `
+        SELECT flights.from, flights.to, flights.flight_time, flights.departure_date, flights.flight_price
+        FROM flights 
+        WHERE flights.from= ? AND flights.to=?
+        
+    `;
+
+    // Execute the SQL query with user input as parameters
+    connection.query(sqlQuery,[selectedFrom,selectedTo], (error, results) => {
+        if (error) {
+            console.error('Error executing SQL query:', error);
+            res.status(500).send('Database Error');
+            return;
+        }
+        
+        // Check if any flights match the criteria
+        if (results.length === 0) {
+            res.status(404).send('No flights found matching the criteria.');
+            
+        } else {
+            // Send the results back to the client in JSON format
+            res.json(results);
+        }
     });
 });
 
