@@ -247,13 +247,12 @@
                         }
                         return response.json();
                     })
-                    .then(flights => {
+                    .then(flights => {              
                         // Handle the response (flights data) here
-                        
                         localStorage.setItem('flights', JSON.stringify(flights));
 
+                      
                         
-                        window.location.href = 'Flights.html';
 
 
 
