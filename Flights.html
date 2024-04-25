@@ -86,7 +86,7 @@
                         <p class="card-text"><strong>Departure Date:</strong> ${formattedDate}</p>
                         <p class="card-text"><strong>Flight Time:</strong> ${flight.flight_time}</p>
                         <p class="card-text"><strong>Price:</strong> ${flight.flight_price}</p>
-                        <a href="#" class="btn btn-outline-primary">Book Now</a>
+                        <a href="planeSeat.html" id="mybtn" class="btn btn-outline-primary" >Book Now</a>
                     </div>
                 </div>
             </div>
@@ -105,6 +105,15 @@
     flightContainer.innerHTML = flightCardsHTML;
 });
 
+
+    </script>
+    <script>
+        // Butona tıklanma (click) olayını dinleyen fonksiyon
+    document.getElementById("mybtn").addEventListener("click", function() {
+        window.location.href = 'planeSeat.html';
+   
+        
+    });
 
     </script>
 

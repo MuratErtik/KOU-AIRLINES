@@ -1,0 +1,177 @@
+.header {
+    background-color: #034077; 
+    color: #F3FBFF; 
+    padding: 20px; 
+    height: 89px;
+}
+.containerh {
+    display: flex; 
+    align-items: center; 
+    padding: 0px; 
+    width: 300px;
+    
+    text-decoration: none; 
+    color: #F3FBFF; 
+    margin-left: 10px;
+    margin-top: -4px;
+}
+.containerh img {
+    width: 50px; 
+    height: auto; 
+    margin-right: 15px; 
+}
+.div{
+    background-color: #A0D4FF;
+    margin: 60px;
+    padding: 250px;
+    
+    
+    .progress-container {
+        position: relative;
+        top: -200px; 
+        
+        
+        .progress{
+            height: 40px;
+            background-color: #F3FBFF;
+            .progress-bar{
+                background-color: #034077;
+            }
+            
+            #image{
+                width: 20px; 
+                height: auto; 
+                
+            }
+        }
+        
+    }
+    .plane {
+        margin: 20px auto;
+        max-width: 300px;
+        background: white;
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+      }
+      
+      .select {
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      
+      .select h1 {
+        width: 60%;
+        margin: 100px auto 35px auto;
+      }
+      
+      .exit {
+        position: relative;
+        height: 50px;
+      }
+      .exit:before, .exit:after {
+        content: "EXIT";
+        font-size: 14px;
+        line-height: 18px;
+        padding: 0px 2px 2px 2px;
+        display: block;
+        position: absolute;
+        background: red;
+        color: white;
+        top: 50%;
+        transform: translate(0, -50%);
+        border-radius: 5px;
+      }
+      .exit:before {
+        left: 10px;
+      }
+      .exit:after {
+        right: 10px;
+      }
+      
+      ol {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .seats {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+      }
+      
+      .seat {
+        display: flex;
+        flex: 0 0 14.28%;
+        padding: 5px;
+        position: relative;
+      }
+      
+      .seat label {
+        display: block;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+        font-weight: bolder;
+        line-height: 1.5rem;
+        padding: 4px 0;
+        background: #5bfc60;
+        border-radius: 5px; 
+        color: black; 
+      }
+      
+      .seat label:hover {
+        cursor: pointer;
+        box-shadow: 0 0 0px 2px green;
+      }
+      
+      .seat:nth-child(3) {
+        margin-right: 14%;
+      }
+      .seat input[type=checkbox] {
+        position: absolute;
+      }
+      .seat input[type=checkbox]:checked + label {
+        background: #656e65;
+      }
+    #flightContainer{
+        position: relative;
+        top: -150px;
+        right: 5px;
+        margin: 0px;
+        padding: 0px;
+        
+        
+        
+    }
+   
+
+  
+    
+}
+
+.divf{
+    background-color: gray;
+    margin: 60px;
+    margin-bottom: 0px;
+    padding: 30px;
+    text-align: center;
+    #kou{
+        color: #F3FBFF;
+    }
+    #rights{
+        color: #F3FBFF;
+    }
+    
+}
+
+
+
+
+
+
+
