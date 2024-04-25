@@ -148,6 +148,27 @@
         
         
     }
+    #red_square {
+      width: 18px;
+      height: 18px;
+      background: red;
+    }
+    #gray_square {
+      width: 18px;
+      height: 18px;
+      background: gray;
+    }
+    #green_square {
+      width: 18px;
+      height: 18px;
+      background: rgb(121, 243, 0);
+    }
+      
+    #btn{
+      position: relative;
+      margin-bottom: 0px;
+      margin-left: 820px;
+    }
    
 
   

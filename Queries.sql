@@ -21,3 +21,13 @@ select airport_name,airportsid from airports
 insert into flights (flightsid,flights.from,flights.to,flight_time,departure_date,flight_price)
 values
 ('SBH-ESB-0930200424','SBH','ESB','01:00:00','2024-04-20 09:30:00',1500);
+select flights.from,flights.to,flight_time,departure_date,flight_price from flights 
+where DATE(departure_date) = ('2024-04-30')
+
+select citizenship from citizenship
+
+Create Table  seat(
+seatid varchar(3) primary key ,
+flightid varchar(30) ,
+foreign key (flightid) references flights(flightsid)
+);
