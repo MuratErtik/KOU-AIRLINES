@@ -125,18 +125,21 @@
 
             $('#plusBtn').click(function () {
                 var value = parseInt($('#numberInput').val());
-                updateDisplay(value + 1);
+                if (value < 5) { 
+                    updateDisplay(value + 1);
+                }
             });
 
             $('#minusBtn').click(function () {
                 var value = parseInt($('#numberInput').val());
-                if (value > 0) {
+                if (value > 0) { 
                     updateDisplay(value - 1);
                 }
             });
 
             updateDisplay(0);
         });
+
 
 
 
@@ -247,12 +250,12 @@
                         }
                         return response.json();
                     })
-                    .then(flights => {              
+                    .then(flights => {
                         // Handle the response (flights data) here
                         localStorage.setItem('flights', JSON.stringify(flights));
 
-                      
-                        
+
+
 
 
 
