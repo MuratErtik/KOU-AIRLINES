@@ -45,6 +45,9 @@
         }
         
     }
+    #cusInfo{
+        margin-top: -110px;
+    }
     .container{
         position: relative;
         top: -150px;

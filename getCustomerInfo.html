@@ -1,218 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOU AIRLINES Customer Information</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    
-    
-    <link rel="stylesheet" href="getCustomerInfo.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOU AIRLINES Customer Information</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="getCustomerInfo.css">
 </head>
+
 <body>
-    <header class="header">
-        <nav>
-            <a href="KOU_AIRLINES_Main_Page.html" class="containerh">
-                <img src="Images/flight_takeoff_FILL0_wght400_GRAD0_opsz24.png" alt="Icon">
-                <h2 style="margin: 0;">KOU AIRLINES</h2>
-            </a>
-        </nav>
-    </header>
-    <section id="main">
-        <div class="div">
-            
-            <div class="progress-container" >
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">Enter Passenger Information <img id="image" src="Images/info_FILL0_wght400_GRAD0_opsz24.png" alt="Icon3"></div>
-            
-                </div>
-            </div>
-            <form class="row g-3 needs-validation" novalidate>
-                <div class="col-md-4">
-                  <label for="validationCustom01" class="form-label">First name</label>
-                  <input type="text" class="form-control" id="validationCustom01"  required>
-                  <div class="invalid-feedback">
-                    Please provide a name.
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <label for="validationCustom02" class="form-label">Last name</label>
-                  <input type="text" class="form-control" id="validationCustom02"  required>
-                  <div class="invalid-feedback">
-                    Please provide a lastname.
+  <header class="header">
+    <nav>
+      <a href="KOU_AIRLINES_Main_Page.html" class="containerh">
+        <img src="Images/flight_takeoff_FILL0_wght400_GRAD0_opsz24.png" alt="Icon">
+        <h2 style="margin: 0;">KOU AIRLINES</h2>
+      </a>
+    </nav>
+  </header>
+  <section id="main">
+    <div class="div">
 
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <label for="validationCustomUsername" class="form-label">Email Adress</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                    <div class="invalid-feedback">
-                      Please choose a mail address.
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <label for="validationCustom03" class="form-label">Citizenship</label>
-                  <input type="text" class="form-control" id="validationCustom03" required>
-                  <div class="invalid-feedback">
-                    Please provide a valid city.
-                  </div>
-                </div>
-                <div class="col-md-2">
-                  <label for="validationCustom04" class="form-label">Citizenship</label>
-                  <div class="form-group">
-                    <input type="text" class="form-control"  list="list-timezone-citizenship" id="input-datalist-citizenship">
-                    <datalist id="list-timezone-citizenship"></datalist>
-                </div>
-                  <div class="invalid-feedback">
-                    Please select a valid state.
-                  </div>
-                </div>
-                <div class="col-md-3">
-                    <label for="validationCustomPhone" class="form-label">Phone Number</label>
-                    <div class="input-group" style="width: 300px;">
-                        <select class="form-select" id="phoneCodeSelect"  aria-label="Country Code">
-                            <option value="1">+1</option>
-                            <option value="44">+44</option>
-                            <option value="49">+49</option>
-                            <option value="90">+90</option>
+      <div class="progress-container">
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+            aria-valuemax="100">Enter Passenger Information <img id="image"
+              src="Images/info_FILL0_wght400_GRAD0_opsz24.png" alt="Icon3"></div>
 
-                            
-                        </select>
-                        <input type="tel" class="form-control" id="validationCustomPhone" placeholder="Phone Number" required maxlength="10">
-                        <div class="invalid-feedback">
-                            Please provide a valid phone number (10 digits).
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="col-12">
-                    <label for="validationCustomDate" class="form-label">Birth Date</label>
-                    <input type="date" class="form-control" id="validationCustomDate" required>
-                    <div class="invalid-feedback">
-                        Please provide a valid date.
-                    </div>
-                </div>
-                
-                
-                
-                
-                
-                
-                
-                
-                <div class="col-12">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                    <label class="form-check-label" for="invalidCheck">
-                      Agree to terms and conditions
-                    </label>
-                    <div class="invalid-feedback">
-                      You must agree before submitting.
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div>
-                    <button id="searchButton" class="btn btn-primary" style="width: 100px;">Search</button>
-            
-                  </div>
-                </div>
-              </form>
-            
-     
+        </div>
+      </div>
+      <div id="cusInfo">
+
+
+      </div>
+      <div id="getInfoBtn">
+        <div class="col-12">
+          <div>
+            <button id="searchButton" class="btn btn-primary" style="width: 100px;">Next</button>
+
+          </div>
+        </div>
+      </div>
+
+
     </div>
-   
- 
 
-        </div>
-    </section>
-    <footer>
-        <div class="divf">
-            <p id="kou">Kocaeli University Airlines Official Website</p>
-            <br>
-            <p id="rights">Kocaeli University Airlines Copyright © 2022 - 2024</p>
-        </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
-   
-    
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
+    </div>
+  </section>
+  <footer>
+    <div class="divf">
+      <p id="kou">Kocaeli University Airlines Official Website</p>
+      <br>
+      <p id="rights">Kocaeli University Airlines Copyright © 2022 - 2024</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
+
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {
-    'use strict'
+      'use strict'
 
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
 
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
         .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
+          form.addEventListener('submit', function (event) {
             if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
+              event.preventDefault()
+              event.stopPropagation()
             }
 
             form.classList.add('was-validated')
-        }, false)
+          }, false)
         })
     })()
-    </script>
-    <script>
-        fetch('http://localhost:3000/citizenship')
-            .then(response => response.json())
-            .then(citizenship => {
-                const datalist = document.getElementById('list-timezone-citizenship');
-                
+  </script>
+  <script>
+    fetch('http://localhost:3000/citizenship')
+      .then(response => response.json())
+      .then(citizenship => {
+        const datalist = document.getElementById('list-timezone-citizenship');
 
-                citizenship.forEach(item => {
-                    
-                    const optionFrom = document.createElement('option');
-                    optionFrom.value = ` ${item.citizenship}`;
-                    datalist.appendChild(optionFrom);
 
-                    
-                });
-            })
-            .catch(error => {
-                console.error('No data:', error);
-            });
-    </script>
-    <script>document.addEventListener('DOMContentLoaded', function() {
-        const phoneInput = document.getElementById('validationCustomPhone');
-    
-        phoneInput.addEventListener('input', function() {
-            const phoneValue = phoneInput.value.replace(/\D/g, ''); 
-    
-            if (phoneValue.length > 10) {
-                phoneInput.value = phoneValue.slice(0, 10);
-            }
+        citizenship.forEach(item => {
+
+          const optionFrom = document.createElement('option');
+          optionFrom.value = ` ${item.citizenship}`;
+          datalist.appendChild(optionFrom);
+
+
         });
-    });
-    </script>
-    <script>
-      document.getElementById('searchButton').addEventListener('click', function () {
-             //set localstorage for cusInfo
-             //
-             //ve ödeme açılsın
-             window.location.href = 'planeSeat.html';
-             //bosluk varsa geçmesin ama
-          });
-    </script>
-    
+      })
+      .catch(error => {
+        console.error('No data:', error);
+      });
+  </script>
+  <script>document.addEventListener('DOMContentLoaded', function () {
+      const searchButton = document.getElementById('searchButton');
 
-    
-    
-    
+      searchButton.addEventListener('click', function (event) {
+        let missingFields = 0;
+        const forms = document.querySelectorAll('.needs-validation');
+
+        forms.forEach(function (form) {
+          // Remove the 'is-invalid' class from all input and select elements in the form
+          const inputs = form.querySelectorAll('input, select');
+          inputs.forEach(function (input) {
+            input.classList.remove('is-invalid');
+          });
+
+          if (!form.checkValidity()) {
+            missingFields++;
+
+            inputs.forEach(function (input) {
+              if (!input.validity.valid && input.required) {
+                input.classList.add('is-invalid');
+              }
+            });
+          }
+        });
+
+        if (missingFields > 0) {
+          event.preventDefault();
+          alert('Please fill in all required fields.');
+        } else {
+          alert('All fields are filled! Please proceed to the next step.');
+          window.location.href = 'planeSeat.html';
+        }
+      });
+    });
+  </script>
+  <script>
+    const selectedCusNum = localStorage.getItem('selectedCusNum');
+
+    if (selectedCusNum && !isNaN(selectedCusNum)) {
+      const cusInfoDiv = document.getElementById('cusInfo');
+
+      
+      for (let i = 0; i < parseInt(selectedCusNum); i++) {
+        const formElement = document.createElement('form');
+        formElement.className = 'row g-3 needs-validation';
+        formElement.setAttribute('novalidate', '');
+
+        
+        formElement.innerHTML = `
+          <h3>${i + 1}. Customer</h3>
+          <div class="col-md-4">
+                    <label for="validationCustom01_${i}" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="validationCustom01_${i}"  required>
+                    <div class="invalid-feedback">
+                      Please provide a name.
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom02_${i}" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="validationCustom02_${i}"  required>
+                    <div class="invalid-feedback">
+                      Please provide a lastname.
+
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustomUsername_${i}" class="form-label">Email Adress</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text" id="inputGroupPrepend_${i}">@</span>
+                      <input type="text" class="form-control" id="validationCustomUsername_${i}" aria-describedby="inputGroupPrepend_${i}" required>
+                      <div class="invalid-feedback">
+                        Please choose a mail address.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <label for="validationCustom03_${i}" class="form-label">Citizenship</label>
+                    <input type="text" class="form-control" id="validationCustom03_${i}" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid city.
+                    </div>
+                  </div>
+                  <div class="col-md-2">
+                    <label for="validationCustom04_${i}" class="form-label">Citizenship</label>
+                    <div class="form-group">
+                      <input type="text" class="form-control"  list="list-timezone-citizenship" id="input-datalist-citizenship">
+                      <datalist id="list-timezone-citizenship"></datalist>
+                  </div>
+                    <div class="invalid-feedback">
+                      Please select a valid state.
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="validationCustomPhone_${i}" class="form-label">Phone Number</label>
+                      <div class="input-group" style="width: 300px;">
+                          <select class="form-select" id="phoneCodeSelect_${i}"  aria-label="Country Code">
+                              <option value="1">+1</option>
+                              <option value="44">+44</option>
+                              <option value="49">+49</option>
+                              <option value="90">+90</option>
+
+                              
+                          </select>
+                          <input type="tel" class="form-control" id="validationCustomPhone_${i}" placeholder="Phone Number" required maxlength="10">
+                          <div class="invalid-feedback">
+                              Please provide a valid phone number (10 digits).
+                          </div>
+                      </div>
+                  </div>
+                  <br>
+                  <div class="col-12">
+                      <label for="validationCustomDate_${i}" class="form-label">Birth Date</label>
+                      <input type="date" class="form-control" id="validationCustomDate_${i}" required>
+                      <div class="invalid-feedback">
+                          Please provide a valid date.
+                      </div>
+                  </div>
+                  
+                  <hr>
+                  
+          
+          `;
+
+        cusInfoDiv.appendChild(formElement);
+      }
+    }
+
+  </script>
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const localStorageKeys = Object.keys(localStorage);
+
+    localStorageKeys.forEach(function (key) {
+      if (key.startsWith('customer_')) {
+        localStorage.removeItem(key);
+      }
+    });
+  });
+</script>
+
+  
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const searchButton = document.getElementById('searchButton');
+
+      searchButton.addEventListener('click', function (event) {
+        let missingFields = 0;
+        const forms = document.querySelectorAll('.needs-validation');
+
+        forms.forEach(function (form, index) {
+          const inputs = form.querySelectorAll('input, select');
+          let customerData = {}; 
+
+          inputs.forEach(function (input) {
+            input.classList.remove('is-invalid');
+
+            if (!input.validity.valid && input.required) {
+              input.classList.add('is-invalid');
+              missingFields++;
+            }
+
+            customerData[input.id] = input.value;
+          });
+
+          if (missingFields === 0) {
+            localStorage.setItem(`customer_${index}`, JSON.stringify(customerData));
+          }
+        });
+
+        if (missingFields > 0) {
+          event.preventDefault();
+         
+        }
+      });
+      
+
+    });
+
+  </script>
+
 </body>
 
 </html>

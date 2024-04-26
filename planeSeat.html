@@ -400,11 +400,24 @@
   </script>
   <script>
     document.getElementById('searchButton').addEventListener('click', function () {
-           //set localstorage for seatInfo
-           //girdiği sayi kadarını seçsin
-           //ve müşteri bilgileri page açılsın
+           
+           
+           
            window.location.href = 'getCardInfo.html';
         });
+  </script>
+  <script>
+    
+    const localStorageKeys = Object.keys(localStorage);
+
+localStorageKeys.forEach(function (key) {
+  if (key.startsWith('customer_')) {
+    const customerData = JSON.parse(localStorage.getItem(key));
+
+    console.log(`Customer ${key.substring(9)}:`); 
+    console.log(customerData); 
+  }
+});
   </script>
 
 
