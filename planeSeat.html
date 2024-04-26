@@ -26,7 +26,7 @@
 
       <div class="progress-container">
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+          <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
             aria-valuemax="100">Book Your Seat <img id="image" src="Images/flight_class_FILL0_wght400_GRAD0_opsz24.png"
               alt="Icon2">
           </div>
@@ -397,6 +397,14 @@
         }
       });
     });
+  </script>
+  <script>
+    document.getElementById('searchButton').addEventListener('click', function () {
+           //set localstorage for seatInfo
+           //girdiği sayi kadarını seçsin
+           //ve müşteri bilgileri page açılsın
+           window.location.href = 'getCardInfo.html';
+        });
   </script>
 
 

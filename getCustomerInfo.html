@@ -90,7 +90,7 @@
                 </div>
                 <br>
                 <div class="col-12">
-                    <label for="validationCustomDate" class="form-label">Date</label>
+                    <label for="validationCustomDate" class="form-label">Birth Date</label>
                     <input type="date" class="form-control" id="validationCustomDate" required>
                     <div class="invalid-feedback">
                         Please provide a valid date.
@@ -116,7 +116,10 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <button class="btn btn-primary" type="submit">Submit form</button>
+                  <div>
+                    <button id="searchButton" class="btn btn-primary" style="width: 100px;">Search</button>
+            
+                  </div>
                 </div>
               </form>
             
@@ -195,6 +198,15 @@
             }
         });
     });
+    </script>
+    <script>
+      document.getElementById('searchButton').addEventListener('click', function () {
+             //set localstorage for cusInfo
+             //
+             //ve ödeme açılsın
+             window.location.href = 'planeSeat.html';
+             //bosluk varsa geçmesin ama
+          });
     </script>
     
 

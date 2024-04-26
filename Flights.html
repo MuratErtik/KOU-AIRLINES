@@ -58,25 +58,25 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <script>
-     document.addEventListener('DOMContentLoaded', function() {
-    const storedFlights = localStorage.getItem('flights');
-    
-    if (!storedFlights) {
-        console.error('Flights data not found in localStorage');
-        return;
-    }
+        document.addEventListener('DOMContentLoaded', function () {
+            const storedFlights = localStorage.getItem('flights');
 
-    const flights = JSON.parse(storedFlights);
-    
-    const flightContainer = document.getElementById('flightContainer');
+            if (!storedFlights) {
+                console.error('Flights data not found in localStorage');
+                return;
+            }
 
-    let flightCardsHTML = '<div class="row row-cols-1 row-cols-md-3 g-4">';
+            const flights = JSON.parse(storedFlights);
 
-    flights.forEach((flight, index) => {
-        const departureDate = new Date(flight.departure_date);
-        const formattedDate = departureDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' });
+            const flightContainer = document.getElementById('flightContainer');
 
-        const flightInfo = `
+            let flightCardsHTML = '<div class="row row-cols-1 row-cols-md-3 g-4">';
+
+            flights.forEach((flight, index) => {
+                const departureDate = new Date(flight.departure_date);
+                const formattedDate = departureDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric' });
+
+                const flightInfo = `
             <div class="col mb-4"> <!-- mb-4 ile alt boşluk ekleniyor -->
                 <div class="card h-100">
                     <img src="Images/Plane.jpeg" class="card-img-top" alt="Plane">
@@ -86,39 +86,26 @@
                         <p class="card-text"><strong>Departure Date:</strong> ${formattedDate}</p>
                         <p class="card-text"><strong>Flight Time:</strong> ${flight.flight_time}</p>
                         <p class="card-text"><strong>Price:</strong> ${flight.flight_price}</p>
-                        <a href="planeSeat.html" id="mybtn" class="btn btn-outline-primary" >Book Now</a>
+                        <a href="getCustomerInfo.html" id="mybtnn" class="btn btn-outline-primary" >Book Now</a>
                     </div>
                 </div>
             </div>
         `;
 
-        flightCardsHTML += flightInfo;
+                flightCardsHTML += flightInfo;
 
-        if ((index + 1) % 3 === 0 || index === flights.length - 1) {
-            flightCardsHTML += '</div>'; 
-            if (index !== flights.length - 1) {
-                flightCardsHTML += '<div class="row row-cols-1 row-cols-md-3 g-4">'; 
-            }
-        }
-    });
+                if ((index + 1) % 3 === 0 || index === flights.length - 1) {
+                    flightCardsHTML += '</div>';
+                    if (index !== flights.length - 1) {
+                        flightCardsHTML += '<div class="row row-cols-1 row-cols-md-3 g-4">';
+                    }
+                }
+            });
 
-    flightContainer.innerHTML = flightCardsHTML;
-});
-
-
-    </script>
-    <script>
-        // Butona tıklanma (click) olayını dinleyen fonksiyon
-    document.getElementById("mybtn").addEventListener("click", function() {
-        window.location.href = 'planeSeat.html';
-   
-        
-    });
+            flightContainer.innerHTML = flightCardsHTML;
+        });
 
     </script>
-
-
-
 
 
 </body>
