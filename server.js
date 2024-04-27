@@ -73,7 +73,9 @@ app.get('/flights', (req, res) => {
     airports_to.airport_name AS to_airport_name, 
     flights.flight_time, 
     flights.departure_date, 
+    flights.departure_time,
     flights.flight_price,
+    
     airports.city AS from_airport_city,
     airports_to.city AS to_airport_city
 FROM 

@@ -18,9 +18,8 @@ VALUES ('SBH','Sabiha Gokcen Airport','Turkiye','Istanbul','Sanayi, 34906 Pendik
 -------------------------------------------------------------------------------------------------------
 select airport_name,airportsid from airports
 ---------------------------------------------------------------------------------------------------------
-insert into flights (flightsid,flights.from,flights.to,flight_time,departure_date,flight_price)
-values
-('SBH-ESB-0930200424','SBH','ESB','01:00:00','2024-04-20 09:30:00',1500);
+insert into flights(flightsid,flights.from,flights.to,flight_time,departure_date,departure_time,flight_price)
+values ('SBH-ESB-1030300424','SBH','ESB','1:30:00','2024-04-30','10:30',1500)
 select flights.from,flights.to,flight_time,departure_date,flight_price from flights 
 where DATE(departure_date) = ('2024-04-30')
 
