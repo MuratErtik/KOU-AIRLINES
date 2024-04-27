@@ -234,7 +234,7 @@
 
                 //Save the Choices in localStorage
                 localStorage.setItem('selectedFromCode', selectedFromCode);
-                localStorage.setItem('selectedFromCode', selectedToCode);
+                localStorage.setItem('selectedToCode', selectedToCode);
                 localStorage.setItem('selectedDate', date);
                 localStorage.setItem('selectedCusNum', customer);
 
@@ -253,12 +253,6 @@
                     .then(flights => {
                         // Handle the response (flights data) here
                         localStorage.setItem('flights', JSON.stringify(flights));
-
-
-
-
-
-
                         console.log('Flights:', flights);
                         window.location.href = 'Flights.html';
                     })
