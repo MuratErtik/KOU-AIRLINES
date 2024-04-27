@@ -151,13 +151,13 @@
     if (selectedCusNum && !isNaN(selectedCusNum)) {
       const cusInfoDiv = document.getElementById('cusInfo');
 
-      
+
       for (let i = 0; i < parseInt(selectedCusNum); i++) {
         const formElement = document.createElement('form');
         formElement.className = 'row g-3 needs-validation';
         formElement.setAttribute('novalidate', '');
 
-        
+
         formElement.innerHTML = `
           <h3>${i + 1}. Customer</h3>
           <div class="col-md-4">
@@ -238,20 +238,20 @@
     }
 
   </script>
- <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const localStorageKeys = Object.keys(localStorage);
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const localStorageKeys = Object.keys(localStorage);
 
-    localStorageKeys.forEach(function (key) {
-      if (key.startsWith('customer_')) {
-        localStorage.removeItem(key);
-      }
+      localStorageKeys.forEach(function (key) {
+        if (key.startsWith('customer_')) {
+          localStorage.removeItem(key);
+        }
+      });
     });
-  });
-</script>
+  </script>
 
-  
-  
+
+
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const searchButton = document.getElementById('searchButton');
@@ -262,7 +262,7 @@
 
         forms.forEach(function (form, index) {
           const inputs = form.querySelectorAll('input, select');
-          let customerData = {}; 
+          let customerData = {};
 
           inputs.forEach(function (input) {
             input.classList.remove('is-invalid');
@@ -282,10 +282,10 @@
 
         if (missingFields > 0) {
           event.preventDefault();
-         
+
         }
       });
-      
+
 
     });
 

@@ -82,16 +82,15 @@
                     <img src="Images/Plane.jpeg" class="card-img-top" alt="Plane">
                     <div class="card-body">
                         <h5 class="card-title">${flight.from_airport_name}-${flight.to_airport_name}</h5>
-                        <p class="card-text" style="font-size:13px;padding-top:0px;padding-bottom:0px"   >${flight.from_airport_city}-${flight.to_airport_city}</p>
+                        <p class="card-text" style="font-size:13px;padding-top:0px;padding-bottom:0px">${flight.from_airport_city}-${flight.to_airport_city}</p>
                         <p class="card-text"><strong>Departure Date:</strong> ${formattedDate} ${flight.departure_time}</p>
                         <p class="card-text"><strong>Flight Time:</strong> ${flight.flight_time}</p>
                         <p class="card-text"><strong>Price:</strong> ${flight.flight_price}</p>
-                        <a href="getCustomerInfo.html" id="mybtnn" class="btn btn-outline-primary" >Book Now</a>
+                        <a href="#" class="btn btn-outline-primary book-now-btn">Book Now</a>
                     </div>
                 </div>
             </div>
         `;
-        
 
                 flightCardsHTML += flightInfo;
 
@@ -104,7 +103,25 @@
             });
 
             flightContainer.innerHTML = flightCardsHTML;
+
+            // Book Now Button Click Event Listener
+            const bookNowButtons = document.querySelectorAll('.book-now-btn');
+            bookNowButtons.forEach((button, index) => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    // Get departure time from the clicked card
+                    const departureTime = flights[index].departure_time;
+
+                    // Store departure time in localStorage
+                    localStorage.setItem('selectedDepartureTime', departureTime);
+
+                    // Redirect to the booking page
+                    window.location.href = 'getCustomerInfo.html';
+                });
+            });
         });
+
 
     </script>
 
