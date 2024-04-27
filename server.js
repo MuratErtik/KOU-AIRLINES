@@ -114,21 +114,21 @@ WHERE
 
 app.get('/seats', (req, res) => {
     // Extract parameters from the query string
-    const selectedFrom = req.query.selectedFromCode;
-    const selectedTo = req.query.selectedToCode;
+    
+    const selectedDepartureTime = req.query.selectedDepartureTime; 
     
 
     // Construct the SQL query based on user input
     const sqlQuery = `
     SELECT seatid FROM seat
     WHERE state=0 AND 
-    flightid=(select flightsid from flights WHERE flights.from= ? AND flights.to= ?);
+    flightid=(select flightsid from flights WHERE departure_time = ?);
 `;
 
 
 
     // Execute the SQL query with user input as parameters
-    connection.query(sqlQuery, [selectedFrom, selectedTo], (error, results) => {
+    connection.query(sqlQuery, [selectedDepartureTime], (error, results) => {
         if (error) {
             console.error('Error executing SQL query:', error);
             res.status(500).send('Database Error');

@@ -420,9 +420,8 @@
     });
   </script>
   <script>
-    selectedFromCode=localStorage.getItem('selectedFromCode');
-    selectedToCode=localStorage.getItem('selectedToCode');
-    var url = `http://localhost:3000/seats?selectedFromCode=${selectedFromCode}&selectedToCode=${selectedToCode}`;
+    selectedDepartureTime=localStorage.getItem('selectedDepartureTime');
+    var url = `http://localhost:3000/seats?selectedDepartureTime=${selectedDepartureTime}`;
     // Fetch flights data from the server
     fetch(url)
       .then(response => {
