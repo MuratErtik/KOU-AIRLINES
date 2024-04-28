@@ -28,75 +28,66 @@
             
                 </div>
             </div>
-            <div class="container" style="background-color: #A0D4FF;">
-                <div class="card">
-                    <div class="form">
-                        <div class="left-side">
-                            <span class="success">Success</span>
-                            <div class="image">
-                                 
-                                 <img src="Images/payment2.jpeg">
-                            </div>
-                            <div class="debit-card">
-                                <div class="card_name">
-                                   <small>Cardholder name</small>
-                                   <span class="user_name">John Doe</span>
+            <div id="layout" style="margin-top: -50px;margin-bottom: -400px;">
+                <div class="container" style="background-color: #A0D4FF;margin-top: -50px;">
+                    <div class="card">
+                        <div class="form">
+                            <div class="left-side">
+                                <span class="success">Success</span>
+                                <div class="image">
+                                     
+                                     <img src="Images/payment2.jpeg">
                                 </div>
-                                    <div class="num_expiry">
-                                        <div class="card_number">
-                                           <small>Card Number</small>
-                                           <span class="set_card_number">0000 0000 0000 0000</span>
-                                        </div>
-                                        <div class="card_cvv">
-                                           <small>Valid upto</small>
-                                           <span class="user_card_cvv">MM/YY</span>
-                                       </div>
-                                
+                                <div class="debit-card">
+                                    <div class="card_name">
+                                       <small>Cardholder name</small>
+                                       <span class="user_name"></span>
                                     </div>
-                            </div> 
-                             
-            
-                            
-                        </div>
-                        <div class="right-side">
-                            <h3>Payment details</h3>
-                            <div class="input-text">
-                                <input type="text" id="user_name_input" onkeyup="userName(this.value)" placeholder="Username" require>
-                                <span>Cardholder name</span>
+                                        <div class="num_expiry">
+                                            <div class="card_number">
+                                               <small>Card Number</small>
+                                               <span class="set_card_number">0000 0000 0000 0000</span>
+                                            </div>
+                                            <div class="card_cvv">
+                                               <small>Valid upto</small>
+                                               <span class="user_card_cvv">MM/YY</span>
+                                           </div>
+                                    
+                                        </div>
+                                </div> 
+                                 
+                
+                                
                             </div>
-                            <div class="input-text">
-                                <input type="text" id="user_card_number_input" placeholder="0000 0000 0000 0000" onkeyup="userCardNumber(this.value)" data-slots="0" data-accept="\d" require>
-                                <span>Card number</span>
-                            </div> 
-                            <div class="input-div">
+                            <div class="right-side">
+                                <h3>Payment details</h3>
                                 <div class="input-text">
-                                   <input type="text" onkeyup="usercardcvv(this.value)" placeholder="MM/YYYY" data-slots="MY" require>
-                                   <span>Valid upto</span>
+                                    <input type="text" id="user_name_input" onkeyup="userName(this.value)" placeholder="Username" require>
+                                    <span>Cardholder name</span>
                                 </div>
-                                <div class="input-text ">
-                                   <input type="text" placeholder="000" data-slots="0" data-accept="\d" size="3" require>
-                                   <span>CVV</span>
+                                <div class="input-text">
+                                    <input type="text" id="user_card_number_input" placeholder="0000 0000 0000 0000" onkeyup="userCardNumber(this.value)" data-slots="0" data-accept="\d" require>
+                                    <span>Card number</span>
+                                </div> 
+                                <div class="input-div">
+                                    <div class="input-text">
+                                       <input type="text" onkeyup="usercardcvv(this.value)" placeholder="MM/YY" data-slots="MY" require>
+                                       <span>Valid upto</span>
+                                    </div>
+                                    <div class="input-text ">
+                                       <input type="text" placeholder="000" data-slots="0" data-accept="\d" size="3" require>
+                                       <span>CVV</span>
+                                    </div>
+                                </div> 
+                                <div class="button">
+                                    <button class="click-pay">Pay</button>
                                 </div>
-                            </div> 
-                            <div class="button">
-                                <button class="click-pay">Pay $25.99</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            
-           
-            
-            
-
-              
-            
+            </div>      
     </div>
-   
- 
-
         </div>
     </section>
     <footer>
@@ -114,7 +105,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
     <script>src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"</script>
    
-    
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -169,18 +159,6 @@ click_pay.addEventListener('click',function(){
     if(!validateform()){ 
         return false;
     } 
-  right_side.style.display="none";
-  left_side.classList.toggle('wide');
-  left_side.style.display="block";
-  card.classList.add('d-none');
-     
-  setTimeout(function(){
-    success.classList.add('success_done');
-}, 2000);
-  
-setTimeout(function(){
-    success.classList.add('success_final');
-}, 4000);
    
 });
 
@@ -204,9 +182,6 @@ var validate_inputs=document.querySelectorAll(".right-side input");
 //  if(validate_inputs has)
     </script>
 
-    
-    
-    
 </body>
 
 </html>
