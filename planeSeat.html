@@ -408,15 +408,15 @@
 
         console.log(`Customer ${key.substring(9)}:`);
         console.log(customerData);
-        
-        
+
+
       }
     });
   </script>
   <script>
+    selectedDepartureTime = localStorage.getItem('selectedDepartureTime');
     selectedFromCode = localStorage.getItem('selectedFromCode');
     selectedToCode = localStorage.getItem('selectedToCode');
-    selectedDepartureTime = localStorage.getItem('selectedDepartureTime');
     var url = `http://localhost:3000/seats?selectedDepartureTime=${selectedDepartureTime}&selectedFromCode=${selectedFromCode}&selectedToCode=${selectedToCode}`;
     // Fetch flights data from the server
     fetch(url)
@@ -430,11 +430,30 @@
         // Handle the response (flights data) here
         localStorage.setItem('seats', JSON.stringify(seats));
         console.log('unavailable seats:', seats);
+
+        // Loop through each seatid in the seats array
+        seats.forEach(seat => {
+          // Construct the id of the seat checkbox element
+          let seatId = seat.seat;
+
+          // Find the checkbox element with the corresponding id
+          let seatCheckboxElement = document.getElementById(seatId);
+          if (seatCheckboxElement) {
+            // Find the label element associated with the checkbox
+            let labelElement = seatCheckboxElement.nextElementSibling;
+            if (labelElement.tagName === 'LABEL') {
+              labelElement.textContent = 'X'; // Change the label text to 'X'
+              labelElement.style.pointerEvents = 'none'; // Disable pointer events on the label
+              labelElement.style.color='red'; 
+              
+              labelElement.style.backgroundcolor='red';
+            }
+          }
+        });
       })
       .catch(error => {
         console.error('Error fetching flights:', error);
         // Handle errors here (e.g., show an alert to the user)
-
       });
   </script>
   <script>
@@ -457,6 +476,7 @@
     });
 
   </script>
+
 
 
 
