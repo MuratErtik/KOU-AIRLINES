@@ -161,41 +161,36 @@
         formElement.innerHTML = `
           <h3>${i + 1}. Customer</h3>
           <div class="col-md-4">
-                    <label for="validationCustom01_${i}" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="validationCustom01_${i}"  required>
+                    <label for="customerName_${i}" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="customerName_${i}"  required>
                     <div class="invalid-feedback">
                       Please provide a name.
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <label for="validationCustom02_${i}" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="validationCustom02_${i}"  required>
+                    <label for="customerLastname_${i}" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="customerLastname_${i}"  required>
                     <div class="invalid-feedback">
                       Please provide a lastname.
 
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <label for="validationCustomUsername_${i}" class="form-label">Email Adress</label>
+                    <label for="customerMail_${i}" class="form-label">Email Adress</label>
                     <div class="input-group has-validation">
                       <span class="input-group-text" id="inputGroupPrepend_${i}">@</span>
-                      <input type="text" class="form-control" id="validationCustomUsername_${i}" aria-describedby="inputGroupPrepend_${i}" required>
+                      <input type="text" class="form-control" id="validationCustomMail_${i}" aria-describedby="inputGroupPrepend_${i}" required>
                       <div class="invalid-feedback">
                         Please choose a mail address.
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-3">
-                    <label for="validationCustom03_${i}" class="form-label">Citizenship</label>
-                    <input type="text" class="form-control" id="validationCustom03_${i}" required>
-                    <div class="invalid-feedback">
-                      Please provide a valid city.
-                    </div>
+                  
                   </div>
                   <div class="col-md-2">
-                    <label for="validationCustom04_${i}" class="form-label">Citizenship</label>
+                    <label for="customerCitizenship_${i}" class="form-label">Citizenship</label>
                     <div class="form-group">
-                      <input type="text" class="form-control"  list="list-timezone-citizenship" id="input-datalist-citizenship">
+                      <input type="text" class="form-control"  list="list-timezone-citizenship" id="input-datalist-citizenship_${i}">
                       <datalist id="list-timezone-citizenship"></datalist>
                   </div>
                     <div class="invalid-feedback">
@@ -203,7 +198,7 @@
                     </div>
                   </div>
                   <div class="col-md-3">
-                      <label for="validationCustomPhone_${i}" class="form-label">Phone Number</label>
+                      <label for="customerPhone_${i}" class="form-label">Phone Number</label>
                       <div class="input-group" style="width: 300px;">
                           <select class="form-select" id="phoneCodeSelect_${i}"  aria-label="Country Code">
                               <option value="1">+1</option>
@@ -221,8 +216,8 @@
                   </div>
                   <br>
                   <div class="col-12">
-                      <label for="validationCustomDate_${i}" class="form-label">Birth Date</label>
-                      <input type="date" class="form-control" id="validationCustomDate_${i}" required>
+                      <label for="validationCustomBirthdate_${i}" class="form-label">Birth Date</label>
+                      <input type="date" class="form-control" id="validationCustomBirthdate_${i}" required>
                       <div class="invalid-feedback">
                           Please provide a valid date.
                       </div>
@@ -290,7 +285,7 @@
     });
 
   </script>
-  
+
 </body>
 
 </html>

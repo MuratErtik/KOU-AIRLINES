@@ -188,7 +188,7 @@ WHERE
 
             // Construct the HTML content using flight details
             const departureDate = new Date(flight.departure_date);
-            const formattedDate = departureDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' });
+            const formattedDate = departureDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }); 
             const cardHtml = `
                 <div id="cardInfo" class="col-md-4" style="margin-left: 550px; margin-top: -700px;">
                     <div class="card" style="width: 190%; height: 100%;">
@@ -199,7 +199,7 @@ WHERE
                                 Departure Date: ${formattedDate}<br>
                                 Departure Time: ${flight.departure_time}<br>
                                 Flight Time: ${flight.flight_time} hours<br>
-                                Price: ${flight.flight_price}TL
+                                Total Price: ${flight.flight_price}TL
                             </p>
                             <a href="#" class="btn btn-primary">Next</a>
                         </div>
