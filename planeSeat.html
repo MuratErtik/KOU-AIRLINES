@@ -12,11 +12,11 @@
       margin-left: 110px;
       margin-right: 150px;
       border-radius: 5px;
-      top: 450px;
+      top: 650px;
       overflow-y: auto;
-      
+
       max-height: 400px;
-      
+
       padding: 10px;
       padding-right: 132px;
       background-color: white;
@@ -40,7 +40,7 @@
     </nav>
   </header>
   <section id="main">
-    <div class="div">
+    <div class="div" style="padding-bottom: 550px;">
 
       <div class="progress-container">
         <div class="progress">
@@ -344,10 +344,13 @@
           </div>
 
           <div id="flightDetailsContainer">
-            
+
           </div>
           <div id="outputDiv">
             <h6 style="text-align: center;margin-right: 110px;"> Selected Seats</h6>
+          </div>
+          <div id="btnn" style="position: relative;top: 225px;left: 850px;">
+            <button type="button" class="btn btn-primary">Next</button>
           </div>
         </div>
 
@@ -436,16 +439,16 @@
         let seatCode = seatNumber + seatLetter;
 
         if ($(this).prop('checked')) {
-          
+
           let emptyIndex = findNextEmptyIndex();
           selectedSeats[emptyIndex] = { id: seatNumber + seatLetter, status: "selected" };
         } else {
-          
+
           let seatIndex = findSeatIndex(seatNumber + seatLetter);
           if (seatIndex !== -1) {
-            delete selectedSeats[seatIndex]; 
+            delete selectedSeats[seatIndex];
             if (seatIndex < nextEmptyIndex) {
-              nextEmptyIndex = seatIndex; 
+              nextEmptyIndex = seatIndex;
             }
           }
         }
@@ -454,10 +457,10 @@
         displaySelectedSeats();
       });
 
-      
+
       function findNextEmptyIndex() {
         while (selectedSeats[nextEmptyIndex] !== undefined) {
-          nextEmptyIndex++; 
+          nextEmptyIndex++;
         }
         return nextEmptyIndex;
       }
@@ -474,19 +477,30 @@
       function displaySelectedSeats() {
         let outputHtml = "<h6 style='text-align: center;margin-right: 110px;'>Selected Seats</h6>";
 
-      
-        
-        
+
+
+
         Object.keys(selectedSeats)
-          .sort((a, b) => a - b) 
+          .sort((a, b) => a - b)
           .forEach(function (index) {
-            outputHtml += `<div>Seat: ${selectedSeats[index].id} for customer ${parseInt(index)+1}</div>`;
+            outputHtml += `<div>Seat: ${selectedSeats[index].id} for customer ${parseInt(index) + 1}</div>`;
           });
 
-        
+
         $('#outputDiv').html(outputHtml);
       }
     });
+    $('button.btn-primary').on('click', function () {
+      let selectedCusNum = parseInt(localStorage.getItem('selectedCusNum'));
+      let hasSelectedSeats = Object.keys(selectedSeats).length == selectedCusNum;
+      if (!hasSelectedSeats) {
+        alert('Please complete the progress of booking! you must choose '+selectedCusNum+' seat.');
+      } else {
+      
+        window.location.href = 'getCardInfo.html'; 
+      }
+    });
+
 
 
 

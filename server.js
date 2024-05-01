@@ -191,7 +191,7 @@ WHERE
             
             const formattedDate = departureDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' });
             const cardHtml = `
-                <div id="cardInfo" class="col-md-4" style="margin-left: 550px; margin-top: -700px;background-color: #F3FBFF">
+                <div id="cardInfo" class="col-md-4" style="margin-left: 550px; margin-top: -900px;background-color: #F3FBFF">
                     <div class="card" style="width: 190%; height: 100%;">
                         <div class="card-body">
                             <h5 class="card-title">${flight.from_airport_name} - ${flight.to_airport_name}</h5>
@@ -202,7 +202,7 @@ WHERE
                                 Flight Time: ${flight.flight_time} hours<br>
                                 Total Price: ${flight.flight_price}TL
                             </p>
-                            <a href="#" class="btn btn-primary">Next</a>
+                            
                         </div>
                     </div>
                 </div>
