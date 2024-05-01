@@ -188,9 +188,10 @@ WHERE
 
             // Construct the HTML content using flight details
             const departureDate = new Date(flight.departure_date);
-            const formattedDate = departureDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }); 
+            
+            const formattedDate = departureDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' });
             const cardHtml = `
-                <div id="cardInfo" class="col-md-4" style="margin-left: 550px; margin-top: -700px;">
+                <div id="cardInfo" class="col-md-4" style="margin-left: 550px; margin-top: -700px;background-color: #F3FBFF">
                     <div class="card" style="width: 190%; height: 100%;">
                         <div class="card-body">
                             <h5 class="card-title">${flight.from_airport_name} - ${flight.to_airport_name}</h5>
