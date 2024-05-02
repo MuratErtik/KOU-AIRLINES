@@ -188,7 +188,6 @@ WHERE
 
             // Construct the HTML content using flight details
             const departureDate = new Date(flight.departure_date);
-            
             const formattedDate = departureDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' });
             const cardHtml = `
                 <div id="cardInfo" class="col-md-4" style="margin-left: 550px; margin-top: -900px;background-color: #F3FBFF">

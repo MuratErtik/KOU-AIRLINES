@@ -189,28 +189,28 @@
             return validate;
         }
 
-        
+
     </script>
     <script>
         const localStorageKeys = Object.keys(localStorage);
 
-        
+
         const customerKeys = localStorageKeys.filter(function (key) {
             return key.startsWith('customer_');
         }).sort(function (key1, key2) {
-            const id1 = parseInt(key1.substring(9)); 
-            const id2 = parseInt(key2.substring(9)); 
-            return id1 - id2; 
+            const id1 = parseInt(key1.substring(9));
+            const id2 = parseInt(key2.substring(9));
+            return id1 - id2;
         });
 
-        
+
         const sortedCustomerData = [];
 
         customerKeys.forEach(function (key) {
             const customerData = JSON.parse(localStorage.getItem(key));
-            const customerId = key.substring(9); 
+            const customerId = key.substring(9);
 
-            
+
             sortedCustomerData.push({
                 customerId: customerId,
                 customerData: customerData
@@ -218,24 +218,26 @@
         });
 
         console.log(sortedCustomerData);
-        const storedArray = JSON.parse(localStorage.getItem('selectedSeats'));
-        if (Array.isArray(storedArray) && storedArray.length > 0) {
-            
-            
 
-            storedArray.forEach(function (item) {
-                console.log(item);
-            });
+        
 
+        const storedArrayString = localStorage.getItem('selectedSeats');
+
+        if (storedArrayString) {
+            const storedArray = JSON.parse(storedArrayString);
+            const seatArray = Object.values(storedArray).map(obj => obj.id);
+            console.log(seatArray);
+
+            
         } else {
-            
-            console.log('No array data found in localStorage.');
+            console.log('No data found in localStorage.');
         }
 
 
 
 
     </script>
+    
 
 
 </body>
