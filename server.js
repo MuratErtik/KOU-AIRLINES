@@ -7,6 +7,8 @@ const app = express();
 // CORS settings
 app.use(cors());
 
+app.use(express.json());
+
 
 
 
@@ -212,9 +214,95 @@ WHERE
         }
     });
 });
+app.post('/insertData', (req, res) => {
+    const sortedCustomerData = req.body; 
+    console.log(sortedCustomerData);
+
+    
+    for (let i = 0; i < sortedCustomerData.length; i++) {
+        const customer = sortedCustomerData[i].customerData;
+        const mail = customer[`validationCustomMail_${i}`];
+
+        const sqlInsert = `
+            INSERT IGNORE INTO customers (customer_surname, customer_name, citizenshipid, birthdate, mail, phone_number)
+            VALUES (?, ?, ?, ?, ?, ?)
+        `;
+
+        connection.query(sqlInsert, [
+            customer[`customerLastname_${i}`],
+            customer[`customerName_${i}`],
+            customer[`input-datalist-citizenship_${i}`],
+            customer[`validationCustomBirthdate_${i}`],
+            mail,
+            customer[`validationCustomPhone_${i}`]
+        ], (error, insertResult) => {
+            if (error) {
+                console.error('DB insert error:', error);
+            } else {
+                if (insertResult.affectedRows === 0) {
+                    console.log(`This record already has been added!: ${mail}`);
+                    //continue or skip
+
+                } else {
+                    console.log('Data has been updated successfully:', insertResult);
+                    // continue here if u got this message
+                    
+                }
+            }
+        });
+    }
+});
+app.post('/updateSeat', (req, res) => {
+    const storedSeatArray = req.body.storedSeatArray;
+    const storedToCode = req.body.storedToCode;
+    const storedFromCode = req.body.storedFromCode;
+    const storedDepartureTime = req.body.storedDepartureTime;
+    const storedDate = req.body.storedDate;
 
 
 
+
+    const idArray = Object.values(storedSeatArray).map(item => item.id);
+    
+
+
+
+    for (let i = 0; i < idArray.length; i++) {
+        console.log(idArray[i]);
+        
+
+        const sql = `
+            UPDATE seat
+            SET state = 0
+            WHERE  seat = ? AND
+            flightid = (
+                SELECT flightsid FROM flights
+                WHERE flights.to = ?
+                AND flights.from = ?
+                AND departure_time = ?
+                AND departure_date = ?
+                
+            )
+        `;
+
+        connection.query(sql, [
+            idArray[i],
+            storedToCode,
+            storedFromCode,
+            storedDepartureTime,
+            storedDate,
+            
+
+        ], (error, results) => {
+            if (error) {
+                console.error('DB update Error!:', error);
+            } else {
+                console.log('Data has been updated successfully:', results);
+
+            }
+        });
+    }
+});
 //Execute the Server
 
 const port = 3000;
