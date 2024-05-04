@@ -63,6 +63,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             const storedArrayString = localStorage.getItem('selectedSeats');
             const localStorageKeys = Object.keys(localStorage);
+            const storedDepartureTime = localStorage.getItem('selectedDepartureTime');
+            const storedFromCode = localStorage.getItem('selectedFromCode');
+            const storedToCode = localStorage.getItem('selectedToCode');
+            const storedDate = localStorage.getItem('selectedDate');
 
 
             const customerKeys = localStorageKeys.filter(function (key) {
@@ -86,12 +90,13 @@
                 });
             });
 
-            
+
 
             if (storedArrayString) {
                 const storedSeatArray = JSON.parse(storedArrayString);
                 const getCustomerData = sortedCustomerData;
                 console.log(sortedCustomerData);
+                
 
 
 
@@ -100,7 +105,11 @@
 
                 const dataToSend = {
                     storedSeatArray: storedSeatArray,
-                    getCustomerData: getCustomerData
+                    getCustomerData: getCustomerData,
+                    storedToCode: storedToCode,
+                    storedFromCode: storedFromCode,
+                    storedDepartureTime: storedDepartureTime,
+                    storedDate: storedDate
                 };
 
                 if (getCustomerData && storedSeatArray) {

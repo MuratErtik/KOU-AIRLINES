@@ -341,34 +341,54 @@ app.post('/insertBooking', (req, res) => {
 
     const storedSeatArray = req.body.storedSeatArray;
     const sortedCustomerData = req.body.getCustomerData;
+    const storedToCode = req.body.storedToCode;
+    const storedFromCode = req.body.storedFromCode;
+    const storedDepartureTime = req.body.storedDepartureTime;
+    const storedDate = req.body.storedDate;
     const idArray = Object.values(storedSeatArray).map(item => item.id);
 
     for (let i = 0; i < idArray.length; i++) {
         console.log(idArray[i]);
         const customer = sortedCustomerData[i].customerData;
         console.log(customer);
-        
+
         const mail = customer[`validationCustomMail_${i}`];
         console.log(mail);
+        const bookingid = storedFromCode + storedToCode + storedDate + storedDepartureTime +'-' +idArray[i];
 
-        const sql = `insert into booking(Customerid,seatid) values(
+        const sql = `insert into booking(bookingid,Customerid,seatid) values(
+            ?,
             (select customerid from customers where mail = ?),
-            (select seatid from seat where seat= ?)
-            )`
+            (select seatid from seat where seat= ? and flightid = (
+                SELECT flightsid FROM flights
+                WHERE flights.to = ?
+                AND flights.from = ?
+                AND departure_time = ?
+                AND departure_date = ?
+                
+            ))
+        )
+            `
 
-connection.query(sql, [
+        connection.query(sql, [
 
-    mail,
-    idArray[i]
+            bookingid,
+            mail,
+            idArray[i],
+            storedToCode,
+            storedFromCode,
+            storedDepartureTime,
+            storedDate
 
-], (error, results) => {
-    if (error) {
-        console.error('DB Insert booking Error!:', error);
-    } else {
-        console.log(' Booking Data has been updated successfully:', results);
 
-    }
-});
+        ], (error, results) => {
+            if (error) {
+                console.error('DB Insert booking Error!:', error);
+            } else {
+                console.log(' Booking Data has been updated successfully:', results);
+
+            }
+        });
     }
 });
 
