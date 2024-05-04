@@ -337,6 +337,42 @@ app.post('/updateSeat', (req, res) => {
         });
     }
 });
+app.post('/insertBooking', (req, res) => {
+
+    const storedSeatArray = req.body.storedSeatArray;
+    const sortedCustomerData = req.body.getCustomerData;
+    const idArray = Object.values(storedSeatArray).map(item => item.id);
+
+    for (let i = 0; i < idArray.length; i++) {
+        console.log(idArray[i]);
+        const customer = sortedCustomerData[i].customerData;
+        console.log(customer);
+        
+        const mail = customer[`validationCustomMail_${i}`];
+        console.log(mail);
+
+        const sql = `insert into booking(Customerid,seatid) values(
+            (select customerid from customers where mail = ?),
+            (select seatid from seat where seat= ?)
+            )`
+
+connection.query(sql, [
+
+    mail,
+    idArray[i]
+
+], (error, results) => {
+    if (error) {
+        console.error('DB Insert booking Error!:', error);
+    } else {
+        console.log(' Booking Data has been updated successfully:', results);
+
+    }
+});
+    }
+});
+
+
 //Execute the Server
 
 const port = 3000;
