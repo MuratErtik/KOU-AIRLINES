@@ -215,43 +215,77 @@ WHERE
     });
 });
 app.post('/insertData', (req, res) => {
-    const sortedCustomerData = req.body; 
+    const sortedCustomerData = req.body;
     console.log(sortedCustomerData);
 
-    
+    // Array to store promises for all database operations
+    const insertionPromises = [];
+
     for (let i = 0; i < sortedCustomerData.length; i++) {
         const customer = sortedCustomerData[i].customerData;
         const mail = customer[`validationCustomMail_${i}`];
 
-        const sqlInsert = `
-            INSERT IGNORE INTO customers (customer_surname, customer_name, citizenshipid, birthdate, mail, phone_number)
-            VALUES (?, ?, ?, ?, ?, ?)
+        const sqlSelect = `
+            SELECT mail FROM customers WHERE mail = ?
         `;
 
-        connection.query(sqlInsert, [
-            customer[`customerLastname_${i}`],
-            customer[`customerName_${i}`],
-            customer[`input-datalist-citizenship_${i}`],
-            customer[`validationCustomBirthdate_${i}`],
-            mail,
-            customer[`validationCustomPhone_${i}`]
-        ], (error, insertResult) => {
-            if (error) {
-                console.error('DB insert error:', error);
-            } else {
-                if (insertResult.affectedRows === 0) {
-                    console.log(`This record already has been added!: ${mail}`);
-                    //continue or skip
-
+        // Create a promise to query the database for existing email
+        const checkEmailPromise = new Promise((resolve, reject) => {
+            connection.query(sqlSelect, [mail], (error, results) => {
+                if (error) {
+                    reject(error);
                 } else {
-                    console.log('Data has been updated successfully:', insertResult);
-                    // continue here if u got this message
-                    
+                    resolve(results);
                 }
-            }
+            });
         });
+
+        insertionPromises.push(
+            checkEmailPromise.then((results) => {
+                if (results.length > 0) {
+                    console.log(`This record already exists: ${mail}`);
+                    return Promise.resolve(null); // Skip insertion
+                } else {
+                    const sqlInsert = `
+                        INSERT IGNORE INTO customers (customer_surname, customer_name, citizenshipid, birthdate, mail, phone_number)
+                        VALUES (?, ?, ?, ?, ?, ?)
+                    `;
+
+                    // Insert data if email does not exist
+                    return new Promise((resolve, reject) => {
+                        connection.query(sqlInsert, [
+                            customer[`customerLastname_${i}`],
+                            customer[`customerName_${i}`],
+                            customer[`input-datalist-citizenship_${i}`],
+                            customer[`validationCustomBirthdate_${i}`],
+                            mail,
+                            customer[`validationCustomPhone_${i}`]
+                        ], (error, insertResult) => {
+                            if (error) {
+                                reject(error);
+                            } else {
+                                resolve(insertResult);
+                            }
+                        });
+                    });
+                }
+            }).catch((error) => {
+                console.error('DB operation error:', error);
+                return Promise.resolve(null); // Resolve with null if an error occurs
+            })
+        );
     }
+
+    // Wait for all promises to resolve
+    Promise.all(insertionPromises).then((results) => {
+        console.log('All database operations completed:', results);
+        res.send('Data inserted or skipped successfully');
+    }).catch((error) => {
+        console.error('Promise error:', error);
+        res.status(500).send('Internal Server Error');
+    });
 });
+
 app.post('/updateSeat', (req, res) => {
     const storedSeatArray = req.body.storedSeatArray;
     const storedToCode = req.body.storedToCode;
@@ -263,13 +297,13 @@ app.post('/updateSeat', (req, res) => {
 
 
     const idArray = Object.values(storedSeatArray).map(item => item.id);
-    
+
 
 
 
     for (let i = 0; i < idArray.length; i++) {
         console.log(idArray[i]);
-        
+
 
         const sql = `
             UPDATE seat
@@ -291,7 +325,7 @@ app.post('/updateSeat', (req, res) => {
             storedFromCode,
             storedDepartureTime,
             storedDate,
-            
+
 
         ], (error, results) => {
             if (error) {
