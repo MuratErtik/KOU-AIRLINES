@@ -1,74 +1,93 @@
 .header {
-    background-color: #034077; 
-    color: #F3FBFF; 
-    padding: 20px; 
+    background-color: #034077;
+    color: #F3FBFF;
+    padding: 20px;
     height: 89px;
 }
+
 .containerh {
-    display: flex; 
-    align-items: center; 
-    padding: 0px; 
+    display: flex;
+    align-items: center;
+    padding: 0px;
     width: 300px;
-    
-    text-decoration: none; 
-    color: #F3FBFF; 
+
+    text-decoration: none;
+    color: #F3FBFF;
     margin-left: 10px;
     margin-top: -4px;
 }
+
 .containerh img {
-    width: 50px; 
-    height: auto; 
-    margin-right: 15px; 
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
 }
-.div{
+
+.div {
     background-color: #A0D4FF;
     margin: 60px;
     padding: 250px;
-    
+
     .progress-container {
         position: relative;
-        top: -200px; 
-        
-        
-        .progress{
+        top: -200px;
+
+
+        .progress {
             height: 40px;
             background-color: #F3FBFF;
-            .progress-bar{
-                background-color: #034077;
+
+            .progress-bar {
+                background-color: #0bb909;
             }
-            
-            #image{
-                width: 20px; 
-                height: auto; 
-                
+
+            #image {
+                width: 20px;
+                height: auto;
+
             }
         }
-        
+
+
     }
-    .container{
+    body{
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+      
+      
+      
+  
+
+    
+
+    .container {
         position: relative;
         top: -150px;
         margin: 0px;
         padding: 0px;
-        
-    }
-   
 
-  
-    
+    }
+
+
+
+
 }
 
-.divf{
+.divf {
     background-color: gray;
     margin: 60px;
     margin-bottom: 0px;
     padding: 30px;
     text-align: center;
-    #kou{
+
+    #kou {
         color: #F3FBFF;
     }
-    #rights{
+
+    #rights {
         color: #F3FBFF;
     }
-    
+
 }
