@@ -1,5 +1,7 @@
-# KOU-AIRLINES
-This repository has been created for DBMS lecture.
-![
-To create a user-friendly interface where users can select their departure and destination locations using autocomplete text fields, you can implement this using JavaScript and HTML in an English context. Below is an example of how you can achieve this:](assets1.png)
+h1 align="center" id="title">KOU AIRLINES</h1>
 
+<p id="description">This repository has been created for DBMS lecture.</p>
+
+<h2>Project Screenshots:</h2>
+
+<img src="assets\1.png" alt="project-screenshot" width="200" height="400/">
