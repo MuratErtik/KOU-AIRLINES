@@ -23,7 +23,7 @@
     </header>
     <section id="main">
         <div class="div">
-
+            <!--https://getbootstrap.com/docs/4.0/components/progress/-->
             <div class="progress-container">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
@@ -75,6 +75,9 @@
             flights.forEach((flight, index) => {
                 const departureDate = new Date(flight.departure_date);
                 const formattedDate = departureDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' });
+                /*
+                    https://getbootstrap.com/docs/4.0/components/card/  
+                */
 
                 const flightInfo = `
             <div class="col mb-4">
@@ -113,10 +116,10 @@
                     // Get departure time from the clicked card
                     const departureTime = flights[index].departure_time;
 
-                    // Store departure time in localStorage
+                    
                     localStorage.setItem('selectedDepartureTime', departureTime);
 
-                    // Redirect to the booking page
+                    
                     window.location.href = 'getCustomerInfo.html';
                 });
             });
