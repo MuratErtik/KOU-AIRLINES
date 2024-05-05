@@ -32,7 +32,7 @@ connection.connect((err) => {
 
 app.get('/users', (req, res) => {
 
-    const sqlQuery1 = 'select airport_name,airportsid from airports';
+    const sqlQuery1 = 'SELECT * FROM airport_names';
 
 
     connection.query(sqlQuery1, (error, results) => {
