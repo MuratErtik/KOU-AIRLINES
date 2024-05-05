@@ -125,14 +125,14 @@
 
             $('#plusBtn').click(function () {
                 var value = parseInt($('#numberInput').val());
-                if (value < 5) { 
+                if (value < 5) {
                     updateDisplay(value + 1);
                 }
             });
 
             $('#minusBtn').click(function () {
                 var value = parseInt($('#numberInput').val());
-                if (value > 0) { 
+                if (value > 0) {
                     updateDisplay(value - 1);
                 }
             });
@@ -145,6 +145,7 @@
 
         $('#datepicker').datetimepicker({
             format: 'YYYY-MM-DD',
+            minDate: moment().startOf('day'),
             icons: {
                 time: 'far fa-clock',
                 date: 'far fa-calendar',
@@ -162,7 +163,21 @@
 
         // Add event listener to update selectedDate when the datepicker value changes
         $('#datepicker').on('change.datetimepicker', function (e) {
-            selectedDate = e.date.format('YYYY-MM-DD');
+            const currentDate = moment().startOf('day');
+
+            const selectedDateTime = e.date.startOf('day');
+
+            if (selectedDateTime.isBefore(currentDate)) {
+                $(this).datetimepicker('date', currentDate);
+                $(this).addClass('disabled');
+                $(this).css('background-color', 'red');
+                $(this).css('cursor', 'not-allowed');
+            } else {
+                selectedDate = selectedDateTime.format('YYYY-MM-DD');
+                $(this).removeClass('disabled');
+                $(this).css('background-color', '');
+                $(this).css('cursor', '');
+            }
         });
 
 

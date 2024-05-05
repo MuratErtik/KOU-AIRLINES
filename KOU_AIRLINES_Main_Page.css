@@ -51,6 +51,11 @@
 .bootstrap-datetimepicker-widget table td,
 .bootstrap-datetimepicker-widget table th {
     cursor: pointer; 
+
+}
+.disabled {
+    pointer-events:none;
+    
 }
 
 

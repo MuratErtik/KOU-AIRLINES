@@ -153,6 +153,7 @@ app.get('/flightsInfo', (req, res) => {
     const selectedDepartureTime = req.query.selectedDepartureTime;
     const selectedFrom = req.query.selectedFromCode;
     const selectedTo = req.query.selectedToCode;
+    
 
     const sqlQuery = `
     SELECT 
@@ -190,6 +191,10 @@ WHERE
 
             // Construct the HTML content using flight details
             const departureDate = new Date(flight.departure_date);
+            
+
+           
+
             const formattedDate = departureDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' });
             const cardHtml = `
                 <div id="cardInfo" class="col-md-4" style="margin-left: 550px; margin-top: -900px;background-color: #F3FBFF">
@@ -201,7 +206,7 @@ WHERE
                                 Departure Date: ${formattedDate}<br>
                                 Departure Time: ${flight.departure_time}<br>
                                 Flight Time: ${flight.flight_time} hours<br>
-                                Total Price: ${flight.flight_price}TL
+                                Price per Person: ${flight.flight_price}TL
                             </p>
                             
                         </div>
